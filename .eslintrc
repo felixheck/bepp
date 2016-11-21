@@ -3,7 +3,6 @@
   "env": {},
   "parserOptions": {},
   "rules": {
-    "no-param-reassign": [1, { "props": false }],
-    "camelcase": 1
+    "no-param-reassign": [1, { "props": false }]
   }
 }
