@@ -1,0 +1,55 @@
+{
+  "name": "bepps",
+  "description": "Minimalist SVG Parser/Render for PDFKit",
+  "keywords": [
+    "pdfkit",
+    "pdf",
+    "svg",
+    "renderer",
+    "parser"
+  ],
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Felix Heck",
+    "email": "hi@whoTheHeck.de",
+    "url": "http://whoTheHeck.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felixheck/bepp.git"
+  },
+  "bugs": {
+    "email": "hi@whoTheHeck.com",
+    "url": "https://github.com/felixheck/bepp/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "precoverage": "rm -rf coverage",
+    "coverage": "NODE_ENV=test istanbul cover tape -- test/**/*.spec.js | tap-spec",
+    "lint": "eslint --ext .js src",
+    "start": "watch 'npm test' src test --wait 1 --interval 1",
+    "test": "NODE_ENV=test tape test/**/*.spec.js | tap-spec"
+  },
+  "devDependencies": {
+    "eslint": "3.10.2",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.1",
+    "istanbul": "^1.0.0-alpha.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.2",
+    "watch": "^1.0.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.2",
+    "pdfkit": "^0.8.0",
+    "svgson": "^2.0.3"
+  },
+  "peerDependencies": {
+    "pdfkit": ">= 0.x.x"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
