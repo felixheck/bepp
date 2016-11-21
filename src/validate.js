@@ -13,8 +13,8 @@ const _ = require('lodash');
  * @throws In case of invalid parameter
  */
 function validateDocument(document) {
-  if (PDFDocument.prototype.isPrototypeOf(document)) {
-    throw new SyntaxError('Document parameter has to be a \'pdfkit\' instance.')
+  if ({}.isPrototypeOf.call(PDFDocument, document)) {
+    throw new SyntaxError('Document parameter has to be a \'pdfkit\' instance.');
   }
 }
 

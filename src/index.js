@@ -1,5 +1,4 @@
 const _ = require('lodash');
-const path = require('path');
 
 const validate = require('./validate');
 const { is, parseFloats, readAndParse } = require('./utils');
@@ -7,12 +6,7 @@ const { is, parseFloats, readAndParse } = require('./utils');
 function bepp(document, filepath, options = {}) {
   const collection = [];
 
-  validate.all(document,filepath, options);
-
-  readAndParse(filepath, options, (result) => {
-    collect(result.childs);
-    draw();
-  });
+  validate.all(document, filepath, options);
 
   /**
    * @function
@@ -24,43 +18,9 @@ function bepp(document, filepath, options = {}) {
    * @param {Array | *} items The children to be collected
    */
   function collect(items = []) {
-    _.forEach(items, item => {
+    _.forEach(items, (item) => {
       collection.push(item);
       collect(item.childs);
-    });
-  }
-
-  /**
-   * @function
-   * @private
-   *
-   * @description
-   * Draws collected segments
-   */
-  function draw() {
-    _.forEach(collection, item => {
-      parseFloats(item.attrs);
-      setProperties(item.attrs);
-
-      switch(item.name) {
-        case 'path':
-          document.path(item.attrs.d);
-          break;
-        case 'circle':
-          document.circle(item.attrs.cx, item.attrs.cy, item.attrs.r);
-          break;
-        case 'ellipse':
-          item.attrs.ry = item.attrs.ry || item.attrs.rx;
-          document.ellipse(item.attrs.cx, item.attrs.cy, item.attrs.rx, item.attrs.ry);
-          break;
-        case 'line':
-          item.attrs.deltaX = item.attrs.x2 - item.attrs.x1;
-          item.attrs.deltaY = item.attrs.y2 - item.attrs.y1;
-          document.rect(item.attrs.x1, item.attrs.y1, item.attrs.deltaX, item.attrs.deltaY);
-          break;
-      }
-
-      fillAndOrStroke(item.attrs);
     });
   }
 
@@ -104,6 +64,46 @@ function bepp(document, filepath, options = {}) {
       document.lineWidth(attrs.strokeWidth);
     }
   }
+
+  /**
+   * @function
+   * @private
+   *
+   * @description
+   * Draws collected segments
+   */
+  function draw() {
+    _.forEach(collection, (item) => {
+      parseFloats(item.attrs);
+      setProperties(item.attrs);
+
+      switch (item.name) {
+        case 'path':
+          document.path(item.attrs.d);
+          break;
+        case 'circle':
+          document.circle(item.attrs.cx, item.attrs.cy, item.attrs.r);
+          break;
+        case 'ellipse':
+          item.attrs.ry = item.attrs.ry || item.attrs.rx;
+          document.ellipse(item.attrs.cx, item.attrs.cy, item.attrs.rx, item.attrs.ry);
+          break;
+        case 'line':
+          item.attrs.deltaX = item.attrs.x2 - item.attrs.x1;
+          item.attrs.deltaY = item.attrs.y2 - item.attrs.y1;
+          document.rect(item.attrs.x1, item.attrs.y1, item.attrs.deltaX, item.attrs.deltaY);
+          break;
+        default:
+      }
+
+      fillAndOrStroke(item.attrs);
+    });
+  }
+
+  readAndParse(filepath, options, (result) => {
+    collect(result.childs);
+    draw();
+  });
 }
 
 module.exports = bepp;

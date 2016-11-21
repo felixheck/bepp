@@ -3,7 +3,7 @@ const svgson = require('svgson');
 const fs = require('fs');
 
 const floats = ['cx', 'cy', 'r', 'ry', 'rx'];
-const is = (attr) => attr && attr !== 'none';
+const is = attr => attr && attr !== 'none';
 
 /**
  * @function
