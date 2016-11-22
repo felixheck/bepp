@@ -15,3 +15,6 @@ pids/
 
 # Coverage
 coverage/
+
+# Test files
+test.*
