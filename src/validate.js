@@ -34,7 +34,7 @@ function validateFilepath(filepath) {
     throw new SyntaxError('Filepath parameter has to be a non-empty string.');
   }
 
-  if (!_.endsWith('.svg')) {
+  if (!_.endsWith(filepath, '.svg')) {
     throw new SyntaxError('Filepath should be related to a svg file.');
   }
 }
