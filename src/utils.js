@@ -2,8 +2,28 @@ const _ = require('lodash');
 const svgson = require('svgson');
 const fs = require('fs');
 
+/**
+ * @type {Array.<?string>}
+ * @public
+ *
+ * @description
+ * List of attribute keys to be parsed to floating point number
+ */
 const floats = ['cx', 'cy', 'r', 'ry', 'rx'];
-const is = attr => attr && attr !== 'none';
+
+/**
+ * @function
+ * @public
+ *
+ * @description
+ * Checks if attribute is neither null nor undefined nor 'none'
+ *
+ * @param {*} attr The attribute to be checked
+ * @returns {boolean} Whether the conditions matches
+ */
+function is(attr) {
+  return !_.includes([null, undefined, 'none', ''], attr);
+}
 
 /**
  * @function
@@ -38,6 +58,7 @@ function readAndParse(path, options, done) {
 }
 
 module.exports = {
+  floatAttributes: floats,
   is,
   parseFloats,
   readAndParse,

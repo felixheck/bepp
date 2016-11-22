@@ -1,6 +1,6 @@
 const validate = require('./validate');
-const { render } = require('./engine');
-const { readAndParse } = require('./utils');
+const engine = require('./engine');
+const utils = require('./utils');
 
 /**
  * @function
@@ -16,8 +16,8 @@ const { readAndParse } = require('./utils');
 function bepp(document, path, options = {}) {
   validate.all(document, path, options);
 
-  readAndParse(path, options, (result) => {
-    render(document, result.childs);
+  utils.readAndParse(path, options, (result) => {
+    engine.render(document, result.childs);
   });
 }
 
