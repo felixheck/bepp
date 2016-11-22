@@ -1,5 +1,5 @@
 const validate = require('./validate');
-const render = require('./render');
+const { render } = require('./engine');
 const { readAndParse } = require('./utils');
 
 /**

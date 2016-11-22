@@ -5,7 +5,7 @@ const collection = [];
 
 /**
  * @function
- * @private
+ * @public
  *
  * @description
  * Collects all children recursively
@@ -21,7 +21,7 @@ function collect(items = []) {
 
 /**
  * @function
- * @private
+ * @public
  *
  * @this {PDFDocument} document
  *
@@ -46,7 +46,7 @@ function fillAndOrStroke(attrs) {
 
 /**
  * @function
- * @private
+ * @public
  *
  * @this {PDFDocument} document
  *
@@ -69,7 +69,7 @@ function setProperties(attrs) {
 
 /**
  * @function
- * @private
+ * @public
  *
  * @description
  * Draws collected segments
@@ -122,4 +122,10 @@ function render(document, baseNode) {
   draw(document);
 }
 
-module.exports = render;
+module.exports = {
+  collect,
+  fillAndOrStroke,
+  setProperties,
+  draw,
+  render,
+};

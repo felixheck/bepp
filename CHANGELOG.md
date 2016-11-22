@@ -8,6 +8,7 @@
 - **rmv:** test.js
 - **doc:** extend and fix doc blocks
 - **doc:** add API section
+- **fix:** expose engine methods
 
 ### [v0.0.2] - 2016-11-22
 - **rmv:** eslint rules
