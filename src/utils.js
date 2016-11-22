@@ -34,10 +34,7 @@ function parseFloats(attrs) {
  * @param {Function} done The done callback handler
  */
 function readAndParse(filepath, options, done) {
-  fs.readFile(filepath, 'utf-8', (err, file) => {
-    if (err) throw err;
-    svgson(file, options, done);
-  });
+  svgson(fs.readFileSync(filepath, 'utf-8'), options, done);
 }
 
 module.exports = {
