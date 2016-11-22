@@ -4,7 +4,7 @@ const fs = require('fs');
 
 /**
  * @type {Array.<?string>}
- * @public
+ * @private
  *
  * @description
  * List of attribute keys to be parsed to floating point number
@@ -58,7 +58,6 @@ function readAndParse(path, options, done) {
 }
 
 module.exports = {
-  floatAttributes: floats,
   is,
   parseFloats,
   readAndParse,
