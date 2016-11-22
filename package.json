@@ -32,7 +32,7 @@
     "precoverage": "rm -rf coverage",
     "coverage": "NODE_ENV=test istanbul cover tape -- test/**/*.spec.js | tap-spec",
     "lint": "eslint --ext .js src",
-    "start": "watch 'npm test' src test --wait 1 --interval 1",
+    "start": "watch 'npm test' ./src ./test",
     "test": "NODE_ENV=test tape test/**/*.spec.js | tap-spec"
   },
   "devDependencies": {
@@ -41,6 +41,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.1",
     "istanbul": "^1.0.0-alpha.2",
+    "sinon": "^1.17.6",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.2",
     "watch": "^1.0.1"
