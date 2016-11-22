@@ -93,6 +93,9 @@ function bepp(document, filepath, options = {}) {
           item.attrs.deltaY = item.attrs.y2 - item.attrs.y1;
           document.rect(item.attrs.x1, item.attrs.y1, item.attrs.deltaX, item.attrs.deltaY);
           break;
+        case 'rect':
+          document.rect(item.attrs.x, item.attrs.y, item.attrs.width, item.attrs.height);
+          break;
         default:
       }
 
