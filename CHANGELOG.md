@@ -6,6 +6,7 @@
 - **add:** sinon
 - **fix:** refactor for better testing
 - **add:** tests for utils and index
+- **fix:** cleanup tests
 
 ### [v0.0.3] - 2016-11-22
 - **add:** rect support

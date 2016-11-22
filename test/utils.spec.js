@@ -1,11 +1,5 @@
 const test = require('tape').test;
-const _ = require('lodash');
-const sinon = require('sinon');
-const PDFDocument = require('pdfkit');
 
-const pkg = require('../src/index');
-const engine = require('../src/engine');
-const validate = require('../src/validate');
 const utils = require('../src/utils');
 
 test('bepp.utils.is >> returns true for string', t => {
