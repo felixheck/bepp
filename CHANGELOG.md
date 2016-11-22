@@ -2,6 +2,7 @@
 
 ### unreleased
 - **fix:** .gitignore to ignore test files
+- **doc:** add tags and shields
 
 ### [v0.0.3] - 2016-11-22
 - **add:** rect support

@@ -1,7 +1,7 @@
 # bepp
-#### Minimalist SVG Parser/Render for [PDFKit](https://github.com/devongovett/pdfkit)
+#### Minimalist SVG Parser/Renderer for [PDFKit](https://github.com/devongovett/pdfkit)
 
-[![Travis](https://img.shields.io/travis/felixheck/bepp.svg)](https://travis-ci.org/felixheck/bepp/builds/) ![npm](https://img.shields.io/npm/dt/bepp.svg)
+[![Travis](https://img.shields.io/travis/felixheck/bepp.svg)](https://travis-ci.org/felixheck/bepp/builds/) [![npm](https://img.shields.io/npm/dt/bepp.svg)](https://www.npmjs.com/package/bepp) [![node](https://img.shields.io/node/v/gh-badges.svg)]()
 
 ---
 

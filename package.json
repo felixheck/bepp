@@ -1,12 +1,16 @@
 {
   "name": "bepp",
-  "description": "Minimalist SVG Parser/Render for PDFKit",
+  "description": "Minimalist SVG Parser/Renderer for PDFKit",
   "keywords": [
     "pdfkit",
     "pdf",
     "svg",
     "renderer",
-    "parser"
+    "parser",
+    "extension",
+    "parse",
+    "render",
+    "file"
   ],
   "version": "0.0.3",
   "license": "MIT",
