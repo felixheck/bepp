@@ -4,6 +4,7 @@
 - **add:** rect support
 - **doc:** rect support
 - **fix:** refactor, outsource render features
+- **rmv:** test.svg
 
 ### [v0.0.2] - 2016-11-22
 - **rmv:** eslint rules
