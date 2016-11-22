@@ -29,12 +29,12 @@ function parseFloats(attrs) {
  * @description
  * Reads file stream and parses svg file into object
  *
- * @param {string} filepath The absolute path of the file
+ * @param {string} path The path of the SVG file
  * @param {Object} options The svgson options
  * @param {Function} done The done callback handler
  */
-function readAndParse(filepath, options, done) {
-  svgson(fs.readFileSync(filepath, 'utf-8'), options, done);
+function readAndParse(path, options, done) {
+  svgson(fs.readFileSync(path, 'utf-8'), options, done);
 }
 
 module.exports = {

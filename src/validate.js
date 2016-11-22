@@ -23,19 +23,19 @@ function validateDocument(document) {
  * @public
  *
  * @description
- * Validates the filepath parameter
+ * Validates the path parameter
  *
- * @param {*} filepath The file's path to be validated
+ * @param {*} path The file's path to be validated
  *
  * @throws In case of invalid parameter
  */
-function validateFilepath(filepath) {
-  if (!filepath || !_.isString(filepath)) {
-    throw new SyntaxError('Filepath parameter has to be a non-empty string.');
+function validatePath(path) {
+  if (!path || !_.isString(path)) {
+    throw new SyntaxError('Path parameter has to be a non-empty string.');
   }
 
-  if (!_.endsWith(filepath, '.svg')) {
-    throw new SyntaxError('Filepath should be related to a svg file.');
+  if (!_.endsWith(path, '.svg')) {
+    throw new SyntaxError('Path should be related to a svg file.');
   }
 }
 
@@ -64,18 +64,18 @@ function validateOptions(options) {
  * Validates several parameters
  *
  * @param {*} document The document to be validated
- * @param {*} filepath The file's path to be validated
+ * @param {*} path The file's path to be validated
  * @param {*} options The options to be validated
  */
-function validateAll(document, filepath, options) {
+function validateAll(document, path, options) {
   validateDocument(document);
-  validateFilepath(filepath);
+  validatePath(path);
   validateOptions(options);
 }
 
 module.exports = {
   document: validateDocument,
-  filepath: validateFilepath,
+  path: validatePath,
   options: validateOptions,
   all: validateAll,
 };
