@@ -7,6 +7,7 @@
 - **rmv:** test.svg
 - **rmv:** test.js
 - **doc:** extend and fix doc blocks
+- **doc:** add API section
 
 ### [v0.0.2] - 2016-11-22
 - **rmv:** eslint rules

@@ -8,10 +8,11 @@
 1. [Introduction](#introduction)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Example](#example)
-5. [Testing](#testing)
-6. [Contribution](#contribution)
-7. [License](#license)
+4. [API](#api)
+5. [Example](#example)
+6. [Testing](#testing)
+7. [Contribution](#contribution)
+8. [License](#license)
 
 ## Introduction
 
@@ -60,6 +61,14 @@ bepp(doc, path.resolve(__dirname, 'test.svg');
 ```
 
 After executing **bepp** the SVG gets rendered into the document. Do not forget to call `doc.end()` at the very end.
+
+## API
+#### `beep(document, path[, options])`
+
+- `document {pdfkit}` - The [PDFKit](https://github.com/devongovett/pdfkit) instance to be extended.
+- `path {string}` - The SVG file's path.
+- `options {Object}` - The module specific options object, passed through to [svgson](https://github.com/elrumordelaluz/svgson).
+
 
 ##Example
 
