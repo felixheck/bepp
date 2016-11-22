@@ -1,6 +1,8 @@
 # master
 
 ### unreleased
+
+### [v0.0.3] - 2016-11-22
 - **add:** rect support
 - **doc:** rect support
 - **fix:** refactor, outsource render features
@@ -9,6 +11,7 @@
 - **doc:** extend and fix doc blocks
 - **doc:** add API section
 - **fix:** expose engine methods
+- **doc:** bump version
 
 ### [v0.0.2] - 2016-11-22
 - **rmv:** eslint rules
