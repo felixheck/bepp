@@ -5,23 +5,7 @@ const collection = [];
 
 /**
  * @function
- * @public
- *
- * @description
- * Collects all children recursively
- *
- * @param {Array | *} items The children to be collected
- */
-function collect(items = []) {
-  _.forEach(items, (item) => {
-    collection.push(item);
-    collect(item.childs);
-  });
-}
-
-/**
- * @function
- * @public
+ * @private
  *
  * @this {PDFDocument} document
  *
@@ -46,7 +30,7 @@ function fillAndOrStroke(attrs) {
 
 /**
  * @function
- * @public
+ * @private
  *
  * @this {PDFDocument} document
  *
@@ -65,6 +49,22 @@ function setProperties(attrs) {
   if (is(attrs.strokeWidth)) {
     document.lineWidth(attrs.strokeWidth);
   }
+}
+
+/**
+ * @function
+ * @public
+ *
+ * @description
+ * Collects all children recursively
+ *
+ * @param {Array | *} items The children to be collected
+ */
+function collect(items = []) {
+  _.forEach(items, (item) => {
+    collection.push(item);
+    collect(item.childs);
+  });
 }
 
 /**
@@ -124,8 +124,6 @@ function render(document, baseNode) {
 
 module.exports = {
   collect,
-  fillAndOrStroke,
-  setProperties,
   draw,
   render,
 };

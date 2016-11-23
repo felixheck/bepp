@@ -1,6 +1,7 @@
 # master
 
 ### unreleased
+- **fix:** cleanup exposed methods
 
 ### [v0.1.0] - 2016-11-23
 - **fix:** .gitignore to ignore test files
