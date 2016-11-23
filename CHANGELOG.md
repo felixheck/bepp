@@ -1,8 +1,12 @@
 # master
 
 ### unreleased
+- **doc:** add not supported feature list
+
+### [v0.1.1] - 2016-11-23
 - **fix:** cleanup exposed methods
 - **fix:** entry script
+- **doc:** bump version
 
 ### [v0.1.0] - 2016-11-23
 - **fix:** .gitignore to ignore test files
