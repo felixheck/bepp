@@ -2,6 +2,29 @@ const _ = require('lodash');
 const { is, parseFloats } = require('./utils');
 
 const collection = [];
+const defaults = {
+  stroke: 'none',
+  strokeWidth: '1',
+  strokeMiterLimit: '0',
+  strokeLinecap: 'butt',
+  strokeLinejoin: 'miter',
+  fill: 'none',
+  opacity: 1,
+};
+
+/**
+ * @function
+ * @private
+ *
+ * @description
+ * Sets default values
+ *
+ * @param {Object} attrs The attributes to be extended
+ * @returns {Object} The extended attributes
+ */
+function setDefaults(attrs) {
+  return Object.assign({}, defaults, _.omitBy(attrs, attr => attr === 'none'));
+}
 
 /**
  * @function
@@ -15,9 +38,14 @@ const collection = [];
  * @param {Object} attrs The included list of attributes
  */
 function fillAndOrStroke(attrs) {
-  const hasStroke = is(attrs.stroke);
-  const hasFill = is(attrs.fill);
+  const hasNoneStroke = attrs.stroke === 'none';
+  const hasStroke = is(attrs.stroke) || hasNoneStroke;
+  const hasNoneFill = attrs.fill === 'none';
+  const hasFill = is(attrs.fill) || hasNoneFill;
   const document = this;
+
+  document.fillOpacity(hasNoneFill ? 0 : 1);
+  document.strokeOpacity(hasNoneStroke ? 0 : 1);
 
   if (hasStroke && !hasFill) {
     document.stroke(attrs.stroke);
@@ -35,12 +63,19 @@ function fillAndOrStroke(attrs) {
  * @this {PDFDocument} document
  *
  * @description
- * Sets related miterLimit and lineWidth properties
+ * Sets related properties
  *
  * @param {Object} attrs The included list of attributes
  */
 function setProperties(attrs) {
   const document = this;
+
+  document.lineCap(attrs.strokeLinecap);
+  document.lineJoin(attrs.strokeLinejoin);
+
+  if (is(attrs.transform)) {
+    document.transform(..._.map(attrs.transform.slice(7, -1).split(' '), parseFloat));
+  }
 
   if (is(attrs.strokeMiterlimit)) {
     document.miterLimit(attrs.strokeMiterlimit);
@@ -78,6 +113,11 @@ function collect(items = []) {
  */
 function draw(document) {
   _.forEach(collection, (item) => {
+    document.initVector();
+    document.restore();
+    document.save();
+    item.attrs = setDefaults(item.attrs);
+
     parseFloats(item.attrs);
     setProperties.call(document, item.attrs);
 
@@ -93,13 +133,17 @@ function draw(document) {
         document.ellipse(item.attrs.cx, item.attrs.cy, item.attrs.rx, item.attrs.ry);
         break;
       case 'line':
-        item.attrs.deltaX = item.attrs.x2 - item.attrs.x1;
-        item.attrs.deltaY = item.attrs.y2 - item.attrs.y1;
-        document.rect(item.attrs.x1, item.attrs.y1, item.attrs.deltaX, item.attrs.deltaY);
+        document.moveTo(item.attrs.x1, item.attrs.y1).lineTo(item.attrs.x2, item.attrs.y2);
         break;
       case 'rect':
         document.rect(item.attrs.x, item.attrs.y, item.attrs.width, item.attrs.height);
         break;
+      case 'polygon':
+        const points = _.map(_.trim(item.attrs.points).split(' '), (pointPair) => {
+          return _.trim(pointPair).split(',');
+        });
+
+        document.polygon(...points);
       default:
     }
 

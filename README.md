@@ -16,7 +16,7 @@
 
 ## Introduction
 
-This [PDFKit](https://github.com/devongovett/pdfkit) extensions enables to render single SVG files - based on ellipses', circles, rects, paths and lines - into your document, as it is shown in the [example](#example) below.<br>
+This [PDFKit](https://github.com/devongovett/pdfkit) extensions enables to render single SVG files - based on ellipses', circles, rects, paths, polygons and lines - into your document, as it is shown in the [example](#example) below.<br>
 The plugin is implemented in ECMAScript 6. The development dependencies are based on `eslint` and `tape` to grant a high quality implementation.
 
 **bepp** is the Swabian term for *glue*.
@@ -24,8 +24,6 @@ The plugin is implemented in ECMAScript 6. The development dependencies are base
 #### Not Supported Features
 - Dashed lines
 - Opacity
-- Transformations
-- Line Cap
 - Gradients
 - Winding rules
 - Clipping
