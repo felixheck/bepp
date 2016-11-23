@@ -139,11 +139,10 @@ function draw(document) {
         document.rect(item.attrs.x, item.attrs.y, item.attrs.width, item.attrs.height);
         break;
       case 'polygon':
-        const points = _.map(_.trim(item.attrs.points).split(' '), (pointPair) => {
-          return _.trim(pointPair).split(',');
-        });
-
-        document.polygon(...points);
+        item.pointPairs = _.trim(item.attrs.points).split(' ');
+        item.points = _.map(item.pointPairs, pointPair => _.trim(pointPair).split(','));
+        document.polygon(...item.points);
+        break;
       default:
     }
 
