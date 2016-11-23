@@ -1,6 +1,8 @@
 # master
 
 ### unreleased
+
+### [v0.1.0] - 2016-11-23
 - **fix:** .gitignore to ignore test files
 - **doc:** add tags and shields
 - **add:** sinon
@@ -16,6 +18,7 @@
 - **fix:** refactor test related issues
 - **fix:** eslint config
 - **fix:** linting errors
+- **doc:** bump version
 
 ### [v0.0.3] - 2016-11-22
 - **add:** rect support
