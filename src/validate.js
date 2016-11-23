@@ -13,7 +13,7 @@ const _ = require('lodash');
  * @throws In case of invalid parameter
  */
 function validateDocument(document) {
-  if ({}.isPrototypeOf.call(PDFDocument, document)) {
+  if (!PDFDocument.prototype.isPrototypeOf(document)) {
     throw new SyntaxError('Document parameter has to be a \'pdfkit\' instance.');
   }
 }
@@ -23,18 +23,18 @@ function validateDocument(document) {
  * @public
  *
  * @description
- * Validates the path parameter
+ * Validates the filePath parameter
  *
- * @param {*} path The file's path to be validated
+ * @param {*} filePath The file's path to be validated
  *
  * @throws In case of invalid parameter
  */
-function validatePath(path) {
-  if (!path || !_.isString(path)) {
+function validateFilePath(filePath) {
+  if (!filePath || !_.isString(filePath)) {
     throw new SyntaxError('Path parameter has to be a non-empty string.');
   }
 
-  if (!_.endsWith(path, '.svg')) {
+  if (!_.endsWith(filePath, '.svg')) {
     throw new SyntaxError('Path should be related to a svg file.');
   }
 }
@@ -64,18 +64,18 @@ function validateOptions(options) {
  * Validates several parameters
  *
  * @param {*} document The document to be validated
- * @param {*} path The file's path to be validated
+ * @param {*} filePath The file's path to be validated
  * @param {*} options The options to be validated
  */
-function validateAll(document, path, options) {
+function validateAll(document, filePath, options) {
   validateDocument(document);
-  validatePath(path);
+  validateFilePath(filePath);
   validateOptions(options);
 }
 
 module.exports = {
   document: validateDocument,
-  path: validatePath,
+  filePath: validateFilePath,
   options: validateOptions,
   all: validateAll,
 };

@@ -10,13 +10,13 @@ const utils = require('./utils');
  * Renders the passed SVG onto the passed pdfkit instance
  *
  * @param {PDFDocument} document The PDF document to be extended
- * @param {string} path The path of the SVG file
+ * @param {string} filePath The path of the SVG file
  * @param {Object} options? The svgson options
  */
-function bepp(document, path, options = {}) {
-  validate.all(document, path, options);
+function bepp(document, filePath, options = {}) {
+  validate.all(document, filePath, options);
 
-  utils.readAndParse(path, options, (result) => {
+  utils.readAndParse(filePath, options, (result) => {
     engine.render(document, result.childs);
   });
 }

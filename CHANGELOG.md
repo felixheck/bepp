@@ -12,6 +12,8 @@
 - **doc:** add logo to README
 - **fix:** replace logo file
 - **rmv:** logo
+- **add:** tests for validation
+- **fix:** refactor test related issues
 
 ### [v0.0.3] - 2016-11-22
 - **add:** rect support
