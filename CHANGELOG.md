@@ -10,6 +10,7 @@
 - **fix:** cleanup exposed data
 - **add:** logo file
 - **doc:** add logo to README
+- **fix:** replace logo file
 
 ### [v0.0.3] - 2016-11-22
 - **add:** rect support
