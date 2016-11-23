@@ -27,7 +27,7 @@
     "email": "hi@whoTheHeck.com",
     "url": "https://github.com/felixheck/bepp/issues"
   },
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "precoverage": "rm -rf coverage",
     "coverage": "NODE_ENV=test istanbul cover tape -- test/**/*.spec.js | tap-spec",
