@@ -15,6 +15,7 @@
 - **add:** tests for validation
 - **fix:** refactor test related issues
 - **fix:** eslint config
+- **fix:** linting errors
 
 ### [v0.0.3] - 2016-11-22
 - **add:** rect support

@@ -8,12 +8,12 @@ const engine = require('../src/engine');
 const validate = require('../src/validate');
 const utils = require('../src/utils');
 
-test('bepp.index >> exposes function', t => {
+test('bepp.index >> exposes function', (t) => {
   t.equal(_.isFunction(pkg), true);
   t.end();
 });
 
-test('bepp.index >> calls the validation', t => {
+test('bepp.index >> calls the validation', (t) => {
   const spy = sinon.spy(validate, 'all');
   pkg(new PDFDocument(), 'test.svg');
 
@@ -23,7 +23,7 @@ test('bepp.index >> calls the validation', t => {
   spy.restore();
 });
 
-test('bepp.index >> starts the read and parse process', t => {
+test('bepp.index >> starts the read and parse process', (t) => {
   const spy = sinon.spy(utils, 'readAndParse');
   pkg(new PDFDocument(), 'test.svg');
 
@@ -33,7 +33,7 @@ test('bepp.index >> starts the read and parse process', t => {
   spy.restore();
 });
 
-test('bepp.index >> starts the render process', t => {
+test('bepp.index >> starts the render process', (t) => {
   const spy = sinon.spy(engine, 'render');
   pkg(new PDFDocument(), 'test.svg');
 
