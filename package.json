@@ -31,7 +31,7 @@
   "scripts": {
     "precoverage": "rm -rf coverage",
     "coverage": "NODE_ENV=test istanbul cover tape -- test/**/*.spec.js | tap-spec",
-    "lint": "eslint --ext .js src",
+    "lint": "eslint --ext .js src test",
     "start": "watch 'npm test' ./src ./test",
     "test": "NODE_ENV=test tape test/**/*.spec.js | tap-spec"
   },
