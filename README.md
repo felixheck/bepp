@@ -1,5 +1,3 @@
-![bepp](https://raw.githubusercontent.com/felixheck/bepp/master/logo.png)
-
 # bepp
 #### Minimalist SVG Parser/Renderer for [PDFKit](https://github.com/devongovett/pdfkit)
 

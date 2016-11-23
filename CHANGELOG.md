@@ -11,6 +11,7 @@
 - **add:** logo file
 - **doc:** add logo to README
 - **fix:** replace logo file
+- **rmv:** logo
 
 ### [v0.0.3] - 2016-11-22
 - **add:** rect support
