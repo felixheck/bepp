@@ -33,12 +33,3 @@ test('bepp.index >> starts the read and parse process', (t) => {
   spy.restore();
 });
 
-test('bepp.index >> starts the render process', (t) => {
-  const spy = sinon.spy(engine, 'render');
-  pkg(new PDFDocument(), 'test.svg');
-
-  t.equal(spy.called, true);
-  t.end();
-
-  spy.restore();
-});
