@@ -54,7 +54,12 @@ function parseFloats(attrs) {
  * @param {Function} done The done callback handler
  */
 function readAndParse(filePath, options, done) {
-  svgson(fs.readFileSync(filePath, 'utf-8'), options, done);
+  try {
+    const data = fs.readFileSync(filePath, { encoding: 'utf-8', flag: 'rs+' });
+    svgson(data, options, done);
+  } catch (err) {
+    console.err(err);
+  }
 }
 
 module.exports = {
