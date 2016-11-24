@@ -4,7 +4,6 @@ const sinon = require('sinon');
 const PDFDocument = require('pdfkit');
 
 const pkg = require('../src/index');
-const engine = require('../src/engine');
 const validate = require('../src/validate');
 const utils = require('../src/utils');
 
