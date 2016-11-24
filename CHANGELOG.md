@@ -1,6 +1,7 @@
 # master
 
 ### unreleased
+- **fix:** tests
 
 ### [v0.2.2] - 2016-11-24
 - **fix:** read file without cache
