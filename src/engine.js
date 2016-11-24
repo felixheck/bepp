@@ -161,6 +161,7 @@ function draw(document) {
  * @param {Array.<?Object>} baseNode The base node of the SVG to be rendered
  */
 function render(document, baseNode) {
+  collection.length = 0;
   collect(baseNode);
   draw(document);
 }

@@ -2,6 +2,10 @@
 
 ### unreleased
 
+### [v0.2.2] - 2016-11-24
+- **fix:** read file without cache
+- **doc:** bump version
+
 ### [v0.2.1] - 2016-11-24
 - **fix:** read file without cache
 - **doc:** bump version

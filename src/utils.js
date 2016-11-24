@@ -55,10 +55,10 @@ function parseFloats(attrs) {
  */
 function readAndParse(filePath, options, done) {
   try {
-    const data = fs.readFileSync(filePath, { encoding: 'utf-8', flag: 'rs+' });
+    const data = fs.readFileSync(filePath, 'utf-8');
     svgson(data, options, done);
   } catch (err) {
-    console.err(err);
+    console.error(err);
   }
 }
 
